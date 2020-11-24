@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/clubFragment">
+    <fragment
+        android:id="@+id/clubFragment"
+        android:name="com.example.premiereleagueapp.view.clubview.ClubFragment"
+        android:label="fragment_club"
+        tools:layout="@layout/fragment_club"
+        app:startDestination="@id/action_clubFragment_to_playerFragment">
+        <action
+            android:id="@+id/action_clubFragment_to_playerFragment"
+            app:destination="@id/playerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/playerFragment"
+        android:name="com.example.premiereleagueapp.view.playerview.PlayerFragment"
+        android:label="fragment_player"
+        tools:layout="@layout/fragment_player" >
+        <argument
+            android:name="club"
+            app:argType="com.om.example.premiereleagueapp.models.Club" />
+        <action
+            android:id="@+id/action_playerFragment_to_clubFragment"
+            app:destination="@id/clubFragment" />
+    </fragment>
+</navigation>
